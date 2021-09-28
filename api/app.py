@@ -33,23 +33,28 @@ def get_default():
 
 @app.get("/all")
 def get_all():
-    // Your code goes here
+    # Your code goes here
+    return "todo"
 
 @app.get("/event/<event_id>")
 def get_event(event_id: int):
-    // Your code goes here
+    # Your code goes here
+    return "todo"
 
 @app.post("/event")
 def new():
-    // Your code goes here
+    # Your code goes here
+    return "todo"
 
 @app.put("/event/<event_id>")
 def update(event_id: int):
-    // Your code goes here   
+    # Your code goes here
+    return "todo"   
 
 @app.delete("/event/<event_id>")
 def delete(event_id: int):  # no error handling
-    // Your code goes here
+    # Your code goes here
+    return "todo"
 
 if __name__ == '__main__':
     app.run()
