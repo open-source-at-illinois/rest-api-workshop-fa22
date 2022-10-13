@@ -18,7 +18,7 @@ const deleteEvent = (id) => {
 };
 
 const updateEvent = (event) => {
-    const promise = axios.put(`${baseUrl}/event/${event.id}`, event);
+    const promise = axios.patch(`${baseUrl}/event/${event.id}`, event);
     return promise.then(response => response.data)
 };
 

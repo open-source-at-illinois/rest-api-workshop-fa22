@@ -3,10 +3,10 @@ import { Button, Table } from "react-bootstrap";
 import '../App.css';
 import APIService from '../services/APIService';
 
-const EventList = ({events, setEvents, showMessage}) => {
+const EventList = ({ events, setEvents, showMessage }) => {
 
     const [apiErrored, setApiErrored] = useState(false);
-    
+
     useEffect(() => {
         APIService.getEvents()
             .then(eventList => {
@@ -17,25 +17,25 @@ const EventList = ({events, setEvents, showMessage}) => {
             .catch(err => setApiErrored(true));
     }, [setEvents]);
 
-    if(!events) {
-        return  (
-        <h4 style={{ color: apiErrored? "red" : "white", fontFamily: "arial" }}>
-            {apiErrored? 'Could not reach the API' : 'No Events Found'}
-        </h4>
+    if (!events) {
+        return (
+            <h4 style={{ color: apiErrored ? "red" : "white", fontFamily: "arial" }}>
+                {apiErrored ? 'Could not reach the API' : 'No Events Found'}
+            </h4>
         );
     }
-    
+
     const deleteEvent = (id) => {
         return () => {
             APIService.deleteEvent(id)
                 .then(e => showMessage('Event successfully deleted'))
                 .catch(error => {
                     console.log(error);
-                    showMessage('This Event was already doesn\'t exist', true);
+                    showMessage('This Event already doesn\'t exist', true);
                 });
         }
     };
-    
+
     const ids = Object.keys(events);
     return (
         <div>

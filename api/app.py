@@ -56,6 +56,17 @@ def new():
     abort(501)
 
 
+@ app.patch("/event/<event_id>")
+def new():
+    """
+    Updates the event object for the given event_id
+    """
+    # HINT: You can access the object to be updated using request.json
+    # Your code goes here
+
+    abort(501)
+
+
 @ app.delete("/event/<event_id>")
 def delete(event_id: int):  # no error handling
     """
