@@ -10,6 +10,13 @@ events = {
         "category": "food",
         "location": "CIF 1038",
         "date": "Oct 6th 2022 7PM",
+    },
+    1: {
+        "id": 1,
+        "name": "OSAI Event",
+        "category": "stuff",
+        "location": "CIF 1038",
+        "date": "Oct 13th 2022 7PM",
     }
 }
 
@@ -27,11 +34,7 @@ def get_all():
     """
     Returns a map of all events to their event ID
     """
-    # Your code goes here
-
-    # Since this function is not yet implemented, return Status 501
-    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501
-    abort(501)
+    return events
 
 
 @ app.get("/event/<event_id>")
@@ -42,6 +45,8 @@ def get_event(event_id: int):
     event_id = int(event_id)
     # Your code goes here
 
+    # Since this function is not yet implemented, return Status 501
+    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501
     abort(501)
 
 
@@ -57,7 +62,7 @@ def new():
 
 
 @ app.patch("/event/<event_id>")
-def new():
+def update():
     """
     Updates the event object for the given event_id
     """
