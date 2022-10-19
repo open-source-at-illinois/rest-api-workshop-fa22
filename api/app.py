@@ -43,11 +43,7 @@ def get_event(event_id: int):
     Returns the event object for the given event_id
     """
     event_id = int(event_id)
-    # Your code goes here
-
-    # Since this function is not yet implemented, return Status 501
-    # https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/501
-    abort(501)
+    return events[event_id]
 
 
 @ app.post("/event")
@@ -55,21 +51,20 @@ def new():
     """
     Stores a new event object in the database
     """
-    # HINT: You can access the object to be created using request.json
-    # Your code goes here
-
-    abort(501)
+    new_id = len(events) + 1
+    events[new_id] = request.json
+    events[new_id]["id"] = new_id
+    return "Added event"
 
 
 @ app.patch("/event/<event_id>")
-def update():
+def update(event_id: int):
     """
     Updates the event object for the given event_id
     """
-    # HINT: You can access the object to be updated using request.json
-    # Your code goes here
-
-    abort(501)
+    event_id = int(event_id)
+    events[event_id] = request.json
+    return event_id
 
 
 @ app.delete("/event/<event_id>")
@@ -78,9 +73,8 @@ def delete(event_id: int):  # no error handling
     Deletes the event object for the given event_id
     """
     event_id = int(event_id)
-    # Your code goes here
-
-    abort(501)
+    del events[event_id]
+    return "Delete successful"
 
 
 if __name__ == '__main__':
