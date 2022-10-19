@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row, Button } from "react-bootstrap";
 import APIService from '../services/APIService';
 
-const NewEventForm = ({showMessage, events, setEvents}) => {
+const NewEventForm = ({ showMessage, events, setEvents }) => {
     const [name, setName] = useState("")
     const [location, setLocation] = useState("")
     const [date, setDate] = useState("")
@@ -27,8 +27,8 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
             if (window.confirm(`${name} already exists, update its info?`)) {
                 APIService.updateEvent(newEvent)
                     .then(responseEvent => {
-                            showMessage('Updated event!', false); 
-                        })
+                        showMessage('Updated event!', false);
+                    })
                     .catch(error => showMessage(error.response.data.error, true));
             }
             return;
@@ -38,7 +38,9 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
             .then(e => {
                 showMessage('Added new event', false)
             })
-            .catch(error => showMessage('Something went wrong!', true));    
+            .catch(error => {
+                showMessage(`${error.message}`, true)
+            });
         setName('');
         setLocation('');
         setDate('');
@@ -49,10 +51,10 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
     // TODO: Make Category a dropdown
     return (
         <>
-            <h4 style={{ color: "white", fontFamily: "arial" }}>
+            <h1 style={{ color: "white", fontFamily: "arial" }}>
                 Add a new Event
-            </h4>
-            <Form onSubmit={onSaveClick}> 
+            </h1>
+            <Form onSubmit={onSaveClick} style={{ marginBottom: '30px' }}>
                 <Row>
                     <InputGroup as={Col}>
                         <InputGroup.Prepend>
@@ -94,7 +96,6 @@ const NewEventForm = ({showMessage, events, setEvents}) => {
                     <Button type="submit">Save</Button>
                 </Row>
             </Form>
-            <hr style={{ color: "white", backgroundColor: "white" }} />
         </>
     )
 }

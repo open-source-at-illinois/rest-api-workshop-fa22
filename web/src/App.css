@@ -2,8 +2,9 @@ html, body {
   margin: 0;
   height: 100%;
   padding-top: 3%;
-  background-color: #222222;
+  background-color: #ffffff;
   color: #000000;
+  font-family: 'Comfortaa', cursive;
 }
 
 .App {
@@ -22,7 +23,7 @@ html, body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

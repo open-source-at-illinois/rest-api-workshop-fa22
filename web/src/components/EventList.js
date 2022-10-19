@@ -39,7 +39,7 @@ const EventList = ({ events, setEvents, showMessage }) => {
     const ids = Object.keys(events);
     return (
         <div>
-            <Table striped hover variant="dark">
+            <Table striped hover>
                 <thead>
                     <tr>
                         <th> ID </th>
@@ -60,7 +60,9 @@ const EventList = ({ events, setEvents, showMessage }) => {
                                     <td>{event.location}</td>
                                     <td>{event.date}</td>
                                     <td>{event.category}</td>
-                                    <Button variant="danger" onClick={deleteEvent(event.id)}>X</Button>
+                                    <Button variant="danger" style={{
+                                        alignSelf: "center"
+                                    }} onClick={deleteEvent(event.id)}>Delete</Button>
                                 </tr>
                             )
                     }
