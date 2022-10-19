@@ -5,14 +5,12 @@ from flask_cors import CORS
 events = {
     # Here is an example event:
     0: {
-        "id": 0,
         "name": "OSAI Social",
         "category": "food",
         "location": "CIF 1038",
         "date": "Oct 6th 2022 7PM",
     },
     1: {
-        "id": 1,
         "name": "OSAI Event",
         "category": "stuff",
         "location": "CIF 1038",
@@ -29,7 +27,7 @@ def get_default():
     return {"message": "I <3 Open-Source at Illinois"}
 
 
-@ app.get("/all")
+@ app.get("/events")
 def get_all():
     """
     Returns a map of all events to their event ID
@@ -37,7 +35,7 @@ def get_all():
     return events
 
 
-@ app.get("/event/<event_id>")
+@ app.get("/events/<event_id>")
 def get_event(event_id: int):
     """
     Returns the event object for the given event_id
@@ -46,7 +44,7 @@ def get_event(event_id: int):
     return events[event_id]
 
 
-@ app.post("/event")
+@ app.post("/events")
 def new():
     """
     Stores a new event object in the database
@@ -67,7 +65,7 @@ def update(event_id: int):
     return event_id
 
 
-@ app.delete("/event/<event_id>")
+@ app.delete("/events/<event_id>")
 def delete(event_id: int):  # no error handling
     """
     Deletes the event object for the given event_id

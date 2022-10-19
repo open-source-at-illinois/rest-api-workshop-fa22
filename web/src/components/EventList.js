@@ -30,8 +30,7 @@ const EventList = ({ events, setEvents, showMessage }) => {
             APIService.deleteEvent(id)
                 .then(e => showMessage('Event successfully deleted'))
                 .catch(error => {
-                    console.log(error);
-                    showMessage('This Event already doesn\'t exist', true);
+                    showMessage(error.message, true);
                 });
         }
     };
@@ -42,7 +41,7 @@ const EventList = ({ events, setEvents, showMessage }) => {
             <Table striped hover>
                 <thead>
                     <tr>
-                        <th> ID </th>
+                        <th> # </th>
                         <th>Name</th>
                         <th>Location</th>
                         <th>Date / Time</th>
@@ -52,7 +51,11 @@ const EventList = ({ events, setEvents, showMessage }) => {
                 </thead>
                 <tbody>
                     {
-                        ids.map(id => events[id])
+                        ids.map(id => {
+                            let eventWithId = events[id]
+                            eventWithId["id"] = id
+                            return eventWithId
+                        })
                             .map(event =>
                                 <tr key={event.id}>
                                     <td>{event.id}</td>
