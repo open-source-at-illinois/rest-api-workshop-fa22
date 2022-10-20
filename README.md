@@ -13,24 +13,27 @@
 2. Go to [https://git-scm.org](https://git-scm.org) and install the latest version of git
 
 ## Commands
-1. Create a fork of this repo [https://github.com/open-source-at-illinois/rest-api-workshop-fa21](https://github.com/open-source-at-illinois/rest-api-workshop-fa21).
-    #### Clone the forked repo
-    ```
-    git clone "https://github.com/your_username_/Project_Name.git" restapi
-    cd restapi/api
-    ```
 
-    #### Install the required dependencies and Start the flask server
+First, Create a fork of this repo
 
-    ```
-    pip install -r requirements.txt
-    set FLASK_ENV=development
-    flask run
-    ```
+Then, Clone the forked repo
+  
+```
+git clone "https://github.com/your_username_/Project_Name.git" restapi
+cd restapi/api
+```
+
+Install the required dependencies and Start the flask server
+
+```
+pip install -r requirements.txt
+set FLASK_ENV=development
+flask run
+```
     
  ## Slides
  
- Slides are available [here](https://docs.google.com/presentation/d/1h9fZWnbsCb1VJbUKKmM8I5FSmuKwkM_s4Kwb4TonTq0/edit?usp=sharing)
+ Slides are available [here](https://docs.google.com/presentation/d/164n1aMUk4r8zCzwdApw7XQpeJgy0a_y7RTcWsGZW1rw/edit?usp=sharing)
  
  ## TO DO
  
