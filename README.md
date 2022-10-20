@@ -33,7 +33,8 @@
  Slides are available [here](https://docs.google.com/presentation/d/1h9fZWnbsCb1VJbUKKmM8I5FSmuKwkM_s4Kwb4TonTq0/edit?usp=sharing)
  
  ## TO DO
- 1. Use this website [https://rest-api-workshop-fa21.vercel.app/](https://rest-api-workshop-fa21.vercel.app/) to check the functionality of your API
+ 
+ 1. Use [this website](https://freebie.opensourceatillinois.com/) to check the functionality of your API
  2. Write the 5 HTTP methods in `api/app.py`
     * get(“/”) - returns a key-value pair, with key "message" and value "Welcome to OSAI"
             *TIP: Refer to slide 14  
