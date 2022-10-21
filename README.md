@@ -41,15 +41,14 @@ flask run
  2. Write the 5 HTTP methods in `api/app.py`
     * get(“/”) - returns a key-value pair, with key "message" and value "Welcome to OSAI"
             *TIP: Refer to slide 14  
-    * get(“/all”) - returns events currently stored in the API
-    * post(“/event”) - Adds an event to the end of the events dictionary stored in the API
+    * get(“/events”) - returns events currently stored in the API
+    * post(“/events”) - Adds an event to the end of the events dictionary stored in the API
             * `request.json` contains the data you add in the form
             * puts the data into a new key-value pair in events
             * returns the index in string format  
-    * put(“/event/<event_id>”)
-            * takes in 1 argument called event_id of int type
-            * adds the data in `request.json` to events and returns it 
-    * delete(“/event/<event_id>”)
+    * patch(“/events/<event_id>”)
+            * Updates the event for the given id
+    * delete(“/events/<event_id>”)
             * takes in 1 argument called event_id of int type
             * deletes the key-value pair with the id passed in
             * returns a "Deletion Successful" message
